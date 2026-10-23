@@ -116,14 +116,14 @@ class LauncherActivity : Activity() {
         }
         drawerView.addView(drawerTitle)
         search = EditText(this).apply {
-            hint = "Search apps"; textSize = 15f; setTextColor(white); setHintTextColor(muted)
-            singleLine = true; setPadding(dp(16), 0, dp(16), 0)
+            this.hint = "Search apps"; textSize = 15f; setTextColor(white); setHintTextColor(muted)
+            isSingleLine = true; setPadding(dp(16), 0, dp(16), 0)
             background = rounded(panel, dp(18))
         }
         drawerView.addView(search, LinearLayout.LayoutParams(-1, dp(48)))
         val scroll = ScrollView(this).apply { isFillViewport = false; clipToPadding = false }
         grid = GridLayout(this).apply { columnCount = 4; useDefaultMargins = false }
-        scroll.addView(grid, ScrollView.LayoutParams(-1, -2))
+        scroll.addView(grid, ViewGroup.LayoutParams(-1, -2))
         val scrollLp = LinearLayout.LayoutParams(-1, 0, 1f).apply { topMargin = dp(12) }
         drawerView.addView(scroll, scrollLp)
         root.addView(drawerView, FrameLayout.LayoutParams(-1, -1))
